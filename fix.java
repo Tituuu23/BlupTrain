@@ -59,9 +59,9 @@ public class fix {
 
     static void bookTicket(Scanner scanner) {
         System.out.print("\nMasukkan nomor baris (1-" + ROWS + "): ");
-        int row = scanner.nextInt() - 1;
+        int row = scanner.nextInt() ;
         System.out.print("Masukkan nomor kolom (1-" + COLS + "): ");
-        int col = scanner.nextInt() - 1;
+        int col = scanner.nextInt() ;
 
         if (row >= 0 && row < ROWS && col >= 0 && col < COLS) {
             if (seats[row][col].equals("[ ]")) {
