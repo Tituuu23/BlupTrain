@@ -1,0 +1,69 @@
+import java.util.Scanner;
+public class coba {
+    public static void main(String[] args) {
+        Scanner s = new Scanner (System.in);
+        String[] ToDo = new String[5];
+        int pilihan;
+        int JumlahTugas = 0;
+        do{
+            System.out.println("\n<<<<<< My To Do List >>>>>>");
+            System.out.println("1. Tambah Tugas");
+            System.out.println("2. Lihat Daftar Tugas");
+            System.out.println("3. Hapus Tugas");
+            System.out.println("4. keluar");
+            System.out.print("Pilih Menu: ");
+            pilihan = s.nextInt();
+            s.nextLine();
+            switch (pilihan) {
+                case 1:
+                    if (JumlahTugas < ToDo.length){
+                        System.out.print("Tambahkan Tugas Baru: ");
+                        ToDo[JumlahTugas] = s.nextLine();
+                        JumlahTugas++;
+                        System.out.print("Tugas Ditambahkan!");
+                    }else{
+                        System.out.println("Tugas Sudah Penuh, Silahkan diselesaikan terlebih dahulu!");
+                    }
+                    break;
+                case 2:
+                    if (JumlahTugas == 0){
+                        System.out.println("Tidak Ada Tugas.");
+                    }
+                    else{
+                        for (int i = 0; i < JumlahTugas; i++){
+                            System.out.println((i+1) + ". " + ToDo[i]);
+                        }
+                    }
+                    break;
+                case 3:
+                    if (JumlahTugas == 0){
+                        System.out.println("Tidak Ada Tugas Untuk Dihapus.");
+                    }
+                    else{
+                        for (int i = 0; i < JumlahTugas; i++){
+                            System.out.println((i+1) + ". " + ToDo[i]);
+                        }System.out.print("Masukkan Nomor Tugas yang Ingin Dihapus: ");
+                        int index = s.nextInt();
+                        if (index > 0 && index <= JumlahTugas){
+                            for (int i = index - 1; i < JumlahTugas - 1; i ++){
+                                ToDo[i] = ToDo[i + 1];
+                            }ToDo[index - 1] = null;
+                            JumlahTugas--;
+                            System.out.println("Tugas Dihapus!");
+                        }else{
+                            System.out.println("Pilihan Tidak Valid");
+                        }
+                    }break;
+                case 4:
+                    System.out.println("Exit...");
+                    break;
+                default:
+                    System.out.println("Pilihan Tidak Valid");
+                    
+            }
+            
+        }while (pilihan != 4);
+
+        s.close();
+    }
+}
